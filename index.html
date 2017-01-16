@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Upload Assets</title>
+    <meta charset="utf-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+          <h2>Upload M-Asset Files</h2>
+      </div>
+      <div>
+        <ol>
+          <li>Go to <b>Phone Storage->FDCapp->SISDP-Asset->fdc->savedb->samples</b> and copy all the files in your laptop.</li>
+          <li>Now enter the name of your party in the <b>Group Name</b> field.</li>
+          <li>Select all the files you have copied on clicking <b>Choose Files</b>.</li>
+          <li>Click on <b>Sumbit</b>.</li>
+        </ol>
+      </div>
+      <form action="zip.php" method="post" enctype='multipart/form-data'>
+
+        <div class="form-group">
+          <label for="exampleInputEmail1">Group Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Party Name" name="name">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputFile">File input</label>
+          <input type="file" id="file" name="upload">
+          <p class="help-block">Upload xml files.</p>
+        </div>
+
+        <button name="submit" type="submit" class="btn btn-default"  id="myForm">Submit</button>
+      </form><br><br><br>
+      <div>
+        <h4>Download the combined XML File</h4>
+		<form action="zipper.php" method="post" enctype='multipart/form-data'>
+        <div class="form-group">
+          <input type="text" id="name1" placeholder="Party Name" class="form-control" name="name">
+        </div>
+        <button name="submit" type="submit" class="btn btn-default" id="myForm1">Submit</button>
+		</form>
+      </div>
+    </div>
+  </body>
+  <script>
+    $("#myForm").click(function(){
+      var name = $("#name").val();
+      var upload = $("#file").val();
+      if(name==''){
+          alert("Enter the party name.");
+          window.location.href = "index.html";
+        }
+        if(upload==''){
+          alert("Select the assets to upload.");
+          window.location.href = "index.html";
+        }
+    });
+	$("#myForm1").click(function(){
+		var name = $("#name1").val();
+		if(name == ""){
+			alert("Enter the name of the party to download the assets");
+		}
+	});
+    $("#download").click(function(){
+      var download_file = $("#download_file").val();
+      $("#download").href("xml_upload_files/"+download_file+"/temp/test.xml");
+    });
+  </script>
+</html>
