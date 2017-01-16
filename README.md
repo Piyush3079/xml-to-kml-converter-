@@ -14,11 +14,9 @@ and the corresponding attributes. These xml files can be viewed in google
 earth after converting them into kml file.
 
 
-##How it works
+## How it works
 
-* The index page contains two form. One is for uploading a zip file of nearly 200 
-xml files and the second form is to download a combined zip.
-*The name must be the same while uploading and downloading the zip file.
-*The combined zip file will contain a kml file named points which contains 
-all the points.
+* [The index page contains two form. One is for uploading a zip file of nearly 200 xml files and the second form is to download a combined zip]
+*[The name must be the same while uploading and downloading the zip file]
+*The combined zip file will contain a kml file named points which contains all the points.
 *All lines and polygons will be stored as individual kml file.
