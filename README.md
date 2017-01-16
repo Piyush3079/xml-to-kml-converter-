@@ -1,6 +1,6 @@
-#################
-XML to KML converter
-#################
+
+#XML to KML converter
+
 
 This is a php based application which can be used to convert XML file to
 KML file using simple form
